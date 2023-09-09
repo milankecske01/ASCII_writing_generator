@@ -6,14 +6,14 @@ const fontList= {example:{//így kell kinéznie egy fontnak
 ?   
 `,
 "a":`
-       /\
-      /  \
-     /    \
-    /      \
-   /        \
-  /----------\
- /            \
-/              \
+       /\\
+      /  \\
+     /    \\
+    /      \\
+   /        \\
+  /----------\\
+ /            \\
+/              \\
 `,
 "b":`
 |-----
@@ -54,7 +54,7 @@ function writeText(){
     console.log(sentence)
     for (let index = 0; index < sentence.length; index++) {
         for (let letter of Object.keys(fontList[currentFont])) {
-            if (letter==sentence[index]){
+            if (letter==sentence[index].toLowerCase()){
                 toWrite+=fontList[currentFont][letter]
                 lettersGoneThrough=0;
                 break;
@@ -66,13 +66,7 @@ function writeText(){
             lettersGoneThrough=0;
         }
     }
-
     output.innerHTML=toWrite
-    /*
-    toWrite= input.value;
-    console.log(toWrite)
-    output.innerHTML=toWrite
-    */
 }
 
 function changeActiveFont(){
