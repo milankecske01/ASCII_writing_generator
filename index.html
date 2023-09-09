@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script defer src="main.js"></script>
+    <link rel="stylesheet" href="sus.css">
 </head>
 <body>
     <h1>ASCII art generator</h1>
     <label for="font"></label>
-    <select onchange="changeActiveFont" name="font" id="font">
-
+    <select onchange="changeActiveFont()" name="font" id="fonts">
       </select>
       <br><br>
     <label for="text"></label>
-    <textarea id="input" name="input" rows="4" onchange="writeText" cols="50">ide rakd majd a szöveget</textarea>
+    <textarea id="input" name="input" rows="4" onchange="writeText()" cols="50">ide rakd majd a szöveget</textarea>
     <!--ide megy majd az ASCII art--->
     <pre id="output"></pre>
 </body>
