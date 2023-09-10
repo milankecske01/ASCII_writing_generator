@@ -9,12 +9,16 @@
 </head>
 <body>
     <h1>ASCII art generator</h1>
-    <label for="font"></label>
+    <label for="fonts"></label>
     <select onchange="changeActiveFont()" name="font" id="fonts">
       </select>
       <br><br>
-    <label for="text"></label>
-    <textarea id="input" name="input" rows="4" onchange="writeText()" cols="50">ide rakd majd a szöveget</textarea>
+
+      <label for="padding">Mi legyen a Padding?</label>
+      <input type="text" name="padding" id="padding"><br><br>
+      
+    <textarea id="input" name="input" rows="4" onchange="writeText()" cols="50">Írj valamit</textarea>
+
     <!--ide megy majd az ASCII art--->
     <pre id="output"></pre>
 </body>
