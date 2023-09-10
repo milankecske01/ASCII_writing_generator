@@ -1,4 +1,23 @@
 pre{
     border: solid black 3px;
+    background-color: white;
     height: 200px;
+}
+select{
+    width: 50% !important;
+}
+
+body { 
+    background: url(img/background_main.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+label{
+    color: #fff;
+}
+img{
+    width: 16px;
+    height: 16px;
 }

@@ -1,46 +1,600 @@
+/*
+TODO: úgy döntöttem, hogy átállok arra, hogy minden karakter ugyanolyan magas lesz szóval a jövőben nem lezs szükség a padelésre
++ a pre (output) magasságának átállítása arra ami a jelenlegi font betűmérete
+*/
 let output = document.getElementById("output")
 let fonts = document.getElementById("fonts")
-let currentFont="example";
-const fontList= {example:{//így kell kinéznie egy fontnak
+let currentFont="alligator2_Windows_1252_LIMITED";
+const fontList= {
+alligator2_Windows_1252_LIMITED:{//ez a lopott
+"!":
+`::: 
+:+: 
++:+ 
++#+ 
++#+ 
+   
+### `,
+"\"":`::: ::: 
+:+: :+: 
+        
+        
+        
+        
+        `,
+"#":
+`   :::   :::    
+   :+:   :+:    
++:+:+:+:+:+:+:+ 
+   +#+   +:+    
++#+#+#+#+#+#+#+ 
+   #+#   #+#    
+   ###   ###     
+`,
+"$":
+`     :::     
+   :+:+:+:+:  
+  +:+  +:+     
+   +#++:++#+  
+      +#+ +#+ 
+   #+#+#+#+#  
+      ###     `,
+"%":
+`:::   :::       
+:+:   :+:       
+      +:+       
+      +#+       
+      +#+       
+      #+#   #+# 
+      ###   ### `,
+"&":
+` :::::::     
+:+:   :+:    
+ +:+ +:+     
+  +#++:  ++# 
+ +#+ +#+#+#  
+#+#   #+#+   
+ ##########  `,
+"'":
+`::: 
+:+  
+    
+    
+    
+    
+    `,
+"(":
+`  ::: 
+:+:  
++:+   
++#+   
++#+   
+#+#  
+ ### `,
+")":
+`:::   
+:+:  
+ +:+ 
+ +#+ 
+ +#+ 
+#+#  
+###  `,
+"*":
+`              
+ :+:     :+:  
+   +:+ +:+    
+++#++:++#++:++ 
+   +#+ +#+    
+ #+#     #+#  
+             `,
+"+":
+`              
+     :+:      
+     +:+      
++#++:++#++:++ 
+     +#+      
+     #+#`,
+",":
+`    
+    
+    
+    
+    
+#+# 
+##  `,
+"-":
+`              
+              
+              
++#++:++#++:++ 
+              
+              
+              `,
+".":
+`    
+    
+    
+    
+    
+#+# 
+### `,
+"/":
+`      ::: 
+     :+:  
+    +:+   
+   +#+    
+  +#+     
+ #+#      
+###      `,
+"0":
+` :::::::  
+:+:   :+: 
++:+  :+:+ 
++#+ + +:+ 
++#+#  +#+ 
+#+#   #+# 
+ #######  `,
+"1":
+`  :::   
+:+:+:   
+  +:+   
+  +#+   
+  +#+   
+  #+#   
+####### `,
+"2":
+` ::::::::  
+:+:    :+: 
+      +:+  
+    +#+    
+  +#+      
+ #+#       
+########## `,
+"3":
+` ::::::::  
+:+:    :+: 
+       +:+ 
+    +#++:  
+       +#+ 
+#+#    #+# 
+ ########  `,
+"4":
+`    :::     
+   :+:       
+  +:+ +:+   
+ +#+  +:+   
++#+#+#+#+#+ 
+      #+#   
+      ###   `,
+"5":
+`:::::::::: 
+:+:    :+: 
++:+        
++#++:++#+  
+       +#+ 
+#+#    #+# 
+ ########  `,
+"6":
+` ::::::::  
+:+:    :+: 
++:+        
++#++:++#+  
++#+    +#+ 
+#+#    #+# 
+ ########  `,
+"7":
+`::::::::::: 
+:+:     :+: 
+       +:+  
+      +#+   
+     +#+    
+    #+#     
+    ###     `,
+"8":
+` ::::::::  
+:+:    :+: 
++:+    +:+ 
+ +#++:++#  
++#+    +#+ 
+#+#    #+# 
+ ########  `,
+"9":
+` ::::::::  
+:+:    :+: 
++:+    +:+ 
+ +#++:++#+ 
+       +#+ 
+#+#    #+# 
+ ########  `,
+":":
+`    
+:+: 
+    
+    
+    
+#+# 
+    `,
+";":
+`    
+:+: 
+    
+    
+    
+#+# 
+##  `,
+"<":
+`   ::: 
+  :+:  
+ +:+   
++#+    
+ +#+   
+  #+#  
+   ### `,
+"=":
+`              
+              
++:+:+:+:+:+:+ 
+              
++#+#+#+#+#+#+ 
+              
+              `,
+">":
+`:::    
+ :+:   
+  +:+  
+   +#+ 
+  +#+  
+ #+#   
+###     `,
 "?":
-` ____
-/    \\
-     |
-    /
-   /
-   |
-   o`,
+` :::::::::  
+:+:     :+: 
+       +:+  
+      +#+   
+    +#+     
+            
+    ###     `,
+"@":
+`   :::::::::::    
+:+: :+:+:+:+:+:  
++:+ +:+   +:+ +:+ 
++#+ +:+   +#+ +:+ 
++#+ +#+   +#+ +#+ 
+#+# #+#+#+#+#+   
+  #####          `,
 "a":
-`       /\\
-      /  \\
-     /    \\
-    /      \\
-   /        \\
-  /----------\\
- /            \\
-/              \\`,
+`    :::     
+  :+: :+:   
+ +:+   +:+  
++#++:++#++: 
++#+     +#+ 
+#+#     #+# 
+###     ### `,
 "b":
-`-------
-|      >
-|       >
-|      >
-|-----
-|      >
-|       >
-|      >
-L-----`
+`:::::::::  
+:+:    :+: 
++:+    +:+ 
++#++:++#+  
++#+    +#+ 
+#+#    #+# 
+#########  `,
+"c":
+` ::::::::  
+:+:    :+: 
++:+        
++#+        
++#+        
+#+#    #+# 
+ ########  `,
+"d":
+`:::::::::  
+:+:    :+: 
++:+    +:+ 
++#+    +:+ 
++#+    +#+ 
+#+#    #+# 
+#########  `,
+"e":
+`:::::::::: 
+:+:        
++:+        
++#++:++#   
++#+        
+#+#        
+########## `,
+"f":
+`:::::::::: 
+:+:        
++:+        
+:#::+::#   
++#+        
+#+#        
+###        `,
+"g":
+` ::::::::  
+:+:    :+: 
++:+        
+:#:        
++#+   +#+# 
+#+#    #+# 
+ ########  `,
+"h":
+`:::    ::: 
+:+:    :+: 
++:+    +:+ 
++#++:++#++ 
++#+    +#+ 
+#+#    #+# 
+###    ### `,
+"i":
+`::::::::::: 
+    :+:     
+    +:+     
+    +#+     
+    +#+     
+    #+#     
+########### `,
+"j":
+`::::::::::: 
+    :+:     
+    +:+     
+    +#+     
+    +#+     
+#+# #+#     
+ #####`,
+"k":
+`:::    ::: 
+:+:   :+:  
++:+  +:+   
++#++:++    
++#+  +#+   
+#+#   #+#  
+###    ### `,
+"l":
+`:::        
+:+:        
++:+        
++#+        
++#+        
+#+#        
+########## `,
+"m":
+`::::    ::::  
++:+:+: :+:+:+ 
++:+ +:+:+ +:+ 
++#+  +:+  +#+ 
++#+       +#+ 
+#+#       #+# 
+###       ### `,
+"n":
+`::::    ::: 
+:+:+:   :+: 
+:+:+:+  +:+ 
++#+ +:+ +#+ 
++#+  +#+#+# 
+#+#   #+#+# 
+###    #### `,
+"o":
+` ::::::::  
+:+:    :+: 
++:+    +:+ 
++#+    +:+ 
++#+    +#+ 
+#+#    #+# 
+ ########  `,
+"p":
+`:::::::::  
+:+:    :+: 
++:+    +:+ 
++#++:++#+  
++#+        
+#+#        
+###        `,
+"q":
+` ::::::::   
+:+:    :+:  
++:+    +:+  
++#+    +:+  
++#+  # +#+  
+#+#   +#+   
+ ###### ### `,
+"r":
+`:::::::::  
+:+:    :+: 
++:+    +:+ 
++#++:++#:  
++#+    +#+ 
+#+#    #+# 
+###    ### `,
+"s":
+` ::::::::  
+:+:    :+: 
++:+        
++#++:++#++ 
+       +#+ 
+#+#    #+# 
+ ########  `,
+"t":
+`::::::::::: 
+    :+:     
+    +:+     
+    +#+     
+    +#+     
+    #+#     
+    ###     `,
+"u":
+`:::    ::: 
+:+:    :+: 
++:+    +:+ 
++#+    +:+ 
++#+    +#+ 
+#+#    #+# 
+ ########  `,
+"v":
+`:::     ::: 
+:+:     :+: 
++:+     +:+ 
++#+     +:+ 
+ +#+   +#+  
+  #+#+#+#   
+    ###     `,
+"w":
+`:::       ::: 
+:+:       :+: 
++:+       +:+ 
++#+  +:+  +#+ 
++#+ +#+#+ +#+ 
+ #+#+# #+#+#  
+  ###   ###   `,
+"x":
+`:::    ::: 
+:+:    :+: 
+ +:+  +:+  
+  +#++:+   
+ +#+  +#+  
+#+#    #+# 
+###    ### `,
+"y":
+`:::   ::: 
+:+:   :+: 
+ +:+ +:+  
+  +#++:   
+   +#+    
+   #+#    
+   ###    `,
+"z":
+`::::::::: 
+     :+:  
+    +:+   
+   +#+    
+  +#+     
+ #+#      
+######### `,
+"[":
+`:::::: 
+:+:    
++:+    
++#+    
++#+    
+#+#    
+###### `,
+"\\":
+`:::       
+:+:      
+ +:+     
+  +#+    
+   +#+   
+    #+#  
+     ### `,
+"]":
+`:::::: 
+    :+: 
+    +:+ 
+    +#+ 
+    +#+ 
+    #+# 
+###### `,
+"^":
+`    :::     
+  :+: :+:   
++:+     +:+ 
+          
+          
+          
+          `,
+"_":
+`           
+           
+           
+           
+           
+           
+########## `,
+"`":
+`::: 
+:+ 
+   
+   
+   
+   
+   `,
+"{":
+`   :::: 
+  :+:   
+  +:+   
++#+     
+  +#+   
+  #+#   
+   #### `,
+"|":
+`::: 
+:+: 
++:+ 
+    
++#+ 
+#+# 
+### `,
+"}":
+`::::    
+  :+:   
+  +:+   
+    +#+ 
+  +#+   
+  #+#   
+####    `,
+"~":
+`  :::::   ::: 
+:+:   :+:+:   
+              
+              
+              
+              
+              `,
+" ":
+`  
+  
+  
+  
+  
+  
+  `
 },
-funky:{
-"a":`
-ide kéne a betűt rakni
-`,
-"?":`
-?
-`,
-}
+example_incomplete:{
+    "?":
+    `
+    
+     ____
+    /    \\
+         |
+        /
+       /
+       |
+       o`,
+    "a":
+    `
 
+           /\\
+          /  \\
+         /    \\
+        /      \\
+       /        \\
+      /----------\\
+     /            \\
+    /              \\`,
+    "b":
+    `    -------
+    |      >
+    |       >
+    |      >
+    |-----
+    |      >
+    |       >
+    |      >
+    L-----`,
+    " ":
+    `  `,
+    }
 }
-console.warn(fontList[currentFont]["a"])
 for (const font of Object.keys(fontList)) {
     let option=document.createElement("option")
     option.innerHTML=font
@@ -50,6 +604,7 @@ for (const font of Object.keys(fontList)) {
 
 function changeActiveFont(){
     currentFont=fonts.value;
+    writeText()
 }
 
 var padding = document.getElementById("padding").value
@@ -76,15 +631,13 @@ function getTallestLetter(sentence){
 
 writeText()
 function writeText(){// megkapja az inputot azután kiírja a pre-be az ASCII artot
-    console.log("writing text")
-    let sentence=document.getElementById("input").value
-    let numberOfLetters= Object.keys(fontList[currentFont]).length
-    let lettersGoneThrough=0;
+    let sentence=document.getElementById("input").value.toLowerCase()
     let lines= []
     let maxHeight= getTallestLetter(sentence)
     // ---------
     let currentLetter
     for (let inputIndex = 0; inputIndex < sentence.length; inputIndex++) {
+        //Get Current letter from list
         if(sentence[inputIndex] in fontList[currentFont]){
             currentLetter = fontList[currentFont][sentence[inputIndex]]
         } else{
@@ -93,7 +646,7 @@ function writeText(){// megkapja az inputot azután kiírja a pre-be az ASCII ar
         currentLetter = currentLetter.split("\n")
         
         let longestLine = 0
-        currentLetter.forEach(e => {longestLine = e.length > longestLine? e.length : longestLine})
+        currentLetter.forEach(e => {longestLine = e.length > longestLine? e.length : longestLine})//find longest line then pad letters horizontally
         for (let i = 0; i < currentLetter.length; i++) {
             currentLetter[i] += " ".repeat(longestLine - currentLetter[i].length)
         }
@@ -113,11 +666,13 @@ function writeText(){// megkapja az inputot azután kiírja a pre-be az ASCII ar
                 else{
                     lines[o] += currentLetter[o - (maxHeight - currentLetter.length)]
                 }
-                console.log(lines[o] + " shitfuck")
             }
         }
 
-        for (let p = 0; p < lines.length; p++) {
+        for (let p = 0; p < lines.length; p++) {//add padding
+            if (inputIndex==sentence.length-1) {
+                break;
+            }
             lines[p] += padding
         }
     }
@@ -125,7 +680,6 @@ function writeText(){// megkapja az inputot azután kiírja a pre-be az ASCII ar
     for (let index = 0; index < lines.length; index++) {
         output.innerHTML+=lines[index]+"\n"
     }
-    console.warn(lines)
 
     return
 }

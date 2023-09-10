@@ -1,23 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ASCII art generator</title>
     <script defer src="main.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="sus.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <h1>ASCII art generator</h1>
-    <label for="fonts"></label>
-    <select onchange="changeActiveFont()" name="font" id="fonts">
-      </select>
-      <br><br>
+    <h1 class="d-flex justify-content-center text-white">ASCII writing generator</h1>
+    <div class="container">
+      <div class="row">
+        <label class="col-6" for="fonts">Mi legyen a font?</label>
+        <label class="col-6" for="padding">Mi legyen a Padding? <img title="Az összes betű közé ezt a szöveg fog beékelődni " src="img/info_circle_white.png" alt="info circle"></label></i>
+      </div>
+      <div class="row">
+        <select class="form-select col-6"  onchange="changeActiveFont()" name="font" id="fonts"></select>
+          <input class="col-6" type="text" name="padding" id="padding"><br><br>
+      </div><br>
+      <div class="row">
+        <textarea id="input" name="input" rows="6" onchange="writeText()" cols="50" placeholder="Ide Írd a szövegedet">amongus sus</textarea>
+      </div>
+    </div><br>
 
-      <label for="padding">Mi legyen a Padding?</label>
-      <input type="text" name="padding" id="padding"><br><br>
-      
-    <textarea id="input" name="input" rows="4" onchange="writeText()" cols="50">Írj valamit</textarea>
 
     <!--ide megy majd az ASCII art--->
     <pre id="output"></pre>
